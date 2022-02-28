@@ -8,9 +8,9 @@ Used to set the network: https://chainlist.org/
 56 Binance Smart Chain Mainnet
 97 Binance Smart Chain Testnet
 100 xDai
-137 Matic
+137 Matic(Polygon)
 1287 Moonbase Testnet
-80001 Matic Testnet
+80001 Matic Testnet(Polygon)
 43113 Avalanche Testnet
 43114 Avalanche Mainnet
 42220 Celo Mainnet
@@ -20,4 +20,4 @@ Used to set the network: https://chainlist.org/
 1666600000 Harmony Mainnet Shard0
 */
 
-window.web3ChainId = 3;
+window.web3ChainId = 80001;
