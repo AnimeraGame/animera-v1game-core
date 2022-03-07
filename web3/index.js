@@ -150,3 +150,35 @@ async function sendContract(method, abi, contract, args, value, gasLimit, gasPri
       window.web3gl.sendContractResponse = error.message;
     });
 }
+
+function showAvatarFrame() {
+  iframe.style.display = "block";
+  canvas.style.display = "none";
+}
+
+window.addEventListener('message', subscribe);
+document.addEventListener('message', subscribe);
+
+function subscribe(event) {
+  console.log("Message---------");
+  console.log(event);
+
+  // Get avatar GLB URL
+  if (event.data != null && event.data.endsWith('.glb')) {
+    console.log(`Avatar URL: ${event.data}`);
+    unityInstance.SendMessage("WebGLMessage" , "AvatarExported",  event.data);
+    iframe.style.display = "none";
+    canvas.style.display = "block";
+    // document.getElementById('avatarUrl').innerHTML = `Avatar URL: ${json.data.url}`;
+    // document.getElementById('frame').hidden = true;
+  }
+
+}
+
+function parse(event) {
+  try {
+    return JSON.parse(event.data);
+  } catch (error) {
+    return null;
+  }
+}
