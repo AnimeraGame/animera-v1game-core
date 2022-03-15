@@ -164,7 +164,7 @@ function subscribe(event) {
   console.log(event);
 
   // Get avatar GLB URL
-  if (event.data != null && event.data.endsWith('.glb')) {
+  if (typeof(event.data) == 'string' && event.data.endsWith('.glb')) {
     console.log(`Avatar URL: ${event.data}`);
     unityInstance.SendMessage("WebGLMessage" , "AvatarExported",  event.data);
     iframe.style.display = "none";
